@@ -11,9 +11,9 @@ ENV \
     S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0 \
     S6_CMD_WAIT_FOR_SERVICES=1 \
     S6_SERVICES_READYTIME=50 \
-    GIT_USER="Anonymoesje" \
-    GIT_REPO="home-assistant-magic" \
-    GIT_BRANCH="main"
+    GIT_USER="nielsson4711" \
+    GIT_REPO="wazuh-agent-4-ha" \
+    GIT_BRANCH="adopt"
 
 ADD "https://raw.githubusercontent.com/$GIT_USER/$GIT_REPO/$GIT_BRANCH/.scripts/ha_lsio.sh" "/ha_lsio.sh"
 ARG CONFIGLOCATION="/config/addons_config/wh-agent"

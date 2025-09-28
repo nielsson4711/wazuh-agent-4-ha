@@ -5,6 +5,7 @@ set -ex
 # INIT #
 ########
 
+set -vx
 #Verbose or not
 VERBOSE=true
 #Avoid fails on non declared variables

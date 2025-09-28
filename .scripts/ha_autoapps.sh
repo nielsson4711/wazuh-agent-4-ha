@@ -1,6 +1,7 @@
 #!/bin/sh
 # shellcheck disable=SC2015
 set -e
+set -vx
 
 GIT_USER="${GIT_USER:-nielsson4711}"
 GIT_REPO="${GIT_REPO:-wazuh-agent-4-ha"}
