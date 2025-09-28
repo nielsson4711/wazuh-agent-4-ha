@@ -8,7 +8,8 @@ This repository contains magical addons
 
 This repository contains the following add-ons
 
-### [Wazuh agent addon](https://github.com/Anonymoesje/home-assistant-magic/tree/main/wazuh-agent)
+### [Wazuh agent addon](https://github.com/nielsson4711/wazuh-agent-4-ha/tree/adopt/wazuh-agent)
+originally provided by [Anonymoesje] at https://github.com/Anonymoesje
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
