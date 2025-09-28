@@ -34,17 +34,22 @@ fi
 
 
 # Check wazuh package known, if present.
-if command -v "apk" &>/dev/null && if echo "$PACKAGES" | grep "wazuh-agent" >/dev/null; then
+if echo "$PACKAGES" | grep "wazuh-agent" >/dev/null; then
+  if [ "$PACKMANAGER" = "apk" ]; then
      curl -s https://packages.wazuh.com/key/alpine-devel%40wazuh.com-633d7457.rsa.pub -o /etc/apk/keys/alpine-devel@wazuh.com-633d7457.rsa.pub
      echo "https://packages.wazuh.com/4.x/alpine/v3.12/main" >> /etc/apk/repositories
      apk update
-elif command -v "apt" &>/dev/null && echo "$PACKAGES" | grep "wazuh-agent" >/dev/null; then
+  elif [ "$PACKMANAGER" = "apt" ]; then
     curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | gpg --no-default-keyring --keyring gnupg-ring:/usr/share/keyrings/wazuh.gpg --import && chmod 644 /usr/share/keyrings/wazuh.gpg
     echo "deb [signed-by=/usr/share/keyrings/wazuh.gpg] https://packages.wazuh.com/4.x/apt/ stable main" | tee -a /etc/apt/sources.list.d/wazuh.list
     apt-get update
-else
+  elif [ "$PACKMANAGER" = "pacman" ]; then
+    echo "ERROR: logic not implemented for package management system \"${PACKMANAGER}\""
+    exit 1
+  else
     echo "ERROR: unable to fetch and install  wazuh-agent using the locally identified package management system \"${PACKMANAGER}\""
     exit 1
+  fi
 fi
 
 # DEFINE PACKAGES
