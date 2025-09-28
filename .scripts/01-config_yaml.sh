@@ -7,6 +7,11 @@ set -e
 # INITIALIZATION #
 ##################
 
+GIT_USER="${GIT_USER:-Anonymoesje}"
+GIT_REPO="${GIT_REPO:-home-assistant-magic}"
+GIT_BRANCH="${GIT_BRANCH:-main}"
+
+
 # Exit if /config is not mounted
 if [ ! -d /config ]; then
     exit 0
@@ -100,7 +105,7 @@ if [ ! -f "$CONFIGSOURCE" ]; then
         cp /templates/config.yaml "$(dirname "${CONFIGSOURCE}")"
     else
         # Download template
-        TEMPLATESOURCE="https://raw.githubusercontent.com/Anonymoesje/home-assistant-magic/main/.scripts/config.template"
+        TEMPLATESOURCE="https://raw.githubusercontent.com/${GIT_USER}/${GIT_REPO}/${GIT_BRANCH}/.scripts/config.template"
         curl -f -L -s -S "$TEMPLATESOURCE" --output "$CONFIGSOURCE"
     fi
 fi

@@ -2,6 +2,12 @@
 # shellcheck disable=SC2015
 set -e
 
+
+GIT_USER="${GIT_USER:-Anonymoesje}"
+GIT_REPO="${GIT_REPO:-home-assistant-magic}"
+GIT_BRANCH="${GIT_BRANCH:-main}"
+
+
 ##############################
 # Automatic modules download #
 ##############################
@@ -28,7 +34,7 @@ mkdir -p /etc/cont-init.d
 
 # Download scripts
 for scripts in $MODULES; do
-    echo "$scripts" && curl -f -L -s -S "https://raw.githubusercontent.com/Anonymoesje/home-assistant-magic/main/.scripts/$scripts" -o /etc/cont-init.d/"$scripts" &&
+    echo "$scripts" && curl -f -L -s -S "https://raw.githubusercontent.com/${GIT_USER}/${GIT_REPO}/${GIT_BRANCH}/.scripts/$scripts" -o /etc/cont-init.d/"$scripts" &&
     [ "$(sed -n '/\/bin/p;q' /etc/cont-init.d/"$scripts")" != "" ] ||
     (echo "script failed to install $scripts" && exit 1)
 done

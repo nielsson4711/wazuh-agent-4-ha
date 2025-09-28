@@ -1,0 +1,3 @@
+GIT_USER="nielsson4711"
+GIT_REPO="wazuh-agent-4-ha"
+GIT_BRANCH="adopt"
