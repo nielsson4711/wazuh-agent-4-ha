@@ -2,6 +2,10 @@
 # shellcheck disable=SC2015
 set -e
 
+GIT_USER="${GIT_USER:-nielsson4711}"
+GIT_REPO="${GIT_REPO:-wazuh-agent-4-ha"}
+GIT_BRANCH="${GIT_BRANCH:-adopt}"
+
 # Install packages
 
 PACKAGES="$1"
@@ -18,8 +22,6 @@ if ! command -v curl >/dev/null 2>/dev/null; then
 fi
 
 # Call apps installer script if needed
-${GIT_USER}/${GIT_REPO}/${GIT_BRANCH}
-
 curl -f -L -s -S "https://raw.githubusercontent.com/${GIT_USER}/${GIT_REPO}/${GIT_BRANCH}/.scripts/ha_install_packages.sh" --output /ha_install_packages.sh
 chmod 777 /ha_install_packages.sh
 eval /./ha_install_packages.sh "${PACKAGES:-}"

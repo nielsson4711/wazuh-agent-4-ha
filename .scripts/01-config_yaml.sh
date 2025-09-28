@@ -7,9 +7,9 @@ set -e
 # INITIALIZATION #
 ##################
 
-GIT_USER="${GIT_USER:-Anonymoesje}"
-GIT_REPO="${GIT_REPO:-home-assistant-magic}"
-GIT_BRANCH="${GIT_BRANCH:-main}"
+GIT_USER="${GIT_USER:-nielsson4711}"
+GIT_REPO="${GIT_REPO:-wazuh-agent-4-ha}"
+GIT_BRANCH="${GIT_BRANCH:-adopt}"
 
 
 # Exit if /config is not mounted
